@@ -1,3 +1,21 @@
+**For Bootstrap:  **
+npm install bootstrap
+
+"styles": [
+  "node_modules/bootstrap/dist/css/bootstrap.min.css",
+  "src/styles.css"
+],
+
+npm install jquery popper.js
+
+"scripts": [
+  "node_modules/jquery/dist/jquery.min.js",
+  "node_modules/popper.js/dist/umd/popper.min.js",
+  "node_modules/bootstrap/dist/js/bootstrap.min.js"
+]
+
+
+
 # WeatherForecast
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.14.
