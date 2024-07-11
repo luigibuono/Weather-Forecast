@@ -1,0 +1,125 @@
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .table th, .table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .table th {
+    background-color: #f2f2f2;
+  }
+  
+  .ss{
+    padding: 0.8rem;
+    padding-left: 2rem;
+    border-radius: 50px!important;
+    font-weight: 300;
+  }
+
+  .input-with-icon {
+    position: relative;
+  }
+
+  .input-with-icon input[type="search"] {
+    padding-left: 30px; /* Spazio a sinistra per l'icona */
+  }
+
+  .input-with-icon .fa-magnifying-glass {
+    position: absolute;
+    left: 10px; /* Posizione dell'icona a sinistra */
+    top: 50%; /* Allineamento verticale al centro */
+    transform: translateY(-50%);
+    color: #555; /* Colore dell'icona */
+    z-index: 999;
+  }
+
+  .input-with-icon  .fa-microphone{
+    position: absolute;
+    left: -40px; /* Posizione dell'icona a sinistra */
+    top: 50%; /* Allineamento verticale al centro */
+    transform: translateY(-50%);
+    color: #555; /* Colore dell'icona */
+    background-color: white;
+    z-index: 1100; 
+    background-color: white;
+    padding: 0.5rem;
+  }
+
+
+  .ll{
+    position: absolute;
+    left: -50px; /* Posizione dell'icona a sinistra */
+    top: 50%; /* Allineamento verticale al centro */
+    transform: translateY(-50%);
+    color: #555; /* Colore dell'icona */
+    z-index: 2000; ;
+    border-left: 1px solid grey; 
+    background-color: white;
+    padding: 0.3rem;
+  }
+
+
+  .info-container {
+    display: flex;
+    justify-content: center;
+    margin: 2px;
+  }
+  
+  .info-container p {
+    padding: 0.6rem;
+    margin: 2px;
+    font-size: 1.0rem;
+    background-color: brown;
+    color: white;
+  }
+  
+  .resp2 {
+    margin-left: 2rem;
+  }
+
+  html,body{
+    background-image: url('../assets/../../../assets/dave-hoefler-suf2PfBNdx4-unsplash.jpg');
+    background-size: cover;
+    min-height: 100vh;
+  }
+
+  h3,h4{
+    color: white;
+  }
+
+
+  .suggestions-container{
+    padding: 0.8rem;
+    padding-left: 2rem;
+    font-weight: 300;
+    background-color: white;
+  }
+
+  footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  .container{
+    max-width: 1800px;
+  }
+
+  
+
+  @media only screen and (max-width:576px) {
+    .resp{
+      font-size: 1rem;
+      padding: 1rem;
+    }
+
+    .resp2{
+      margin-left: 2rem;
+    }
+  }

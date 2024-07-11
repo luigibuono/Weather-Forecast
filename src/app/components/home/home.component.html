@@ -1,0 +1,124 @@
+<body>
+<!--NAVBAR-->
+<!-- navbar.component.html -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">W ITALY</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#"></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"></a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">ACCENTURE</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">DELOITTE</a>
+          </li>
+        </ul>
+      </form>
+    </div>
+  </div>
+</nav>
+
+  <!--END NAVBAR-->
+
+<h1 class="d-flex justify-content-center font-bold mb-4" style="padding-bottom: 10rem; padding-top: 5rem; color: white;"> Weather Forecast </h1>
+<div class="container ">
+  <div class="row align-items-center justify-content-center">
+    <div class="col-lg-6">
+      <!-- Input e pulsante in una riga -->
+      <div class="input-group mb-3">
+        <div class="input-with-icon" (click)="searchWeather()">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <input type="text" [(ngModel)]="city" class="form-control ss" placeholder="Enter city name"
+          pattern="[A-Za-z\s]+" (input)="onCityInput()" (keyup.enter)="searchWeather()" style="z-index: 3;" />
+        <div class="input-with-icon">
+          <span class="ll">&nbsp;</span>
+          <i class="fa-solid fa-microphone"></i>
+        </div>
+      </div>
+
+      <!-- Mostra i suggerimenti in colonna sotto -->
+      <div class="suggestions-container" *ngIf="showSuggestions && citySuggestions.length > 0">
+        <ul class="list-unstyled">
+          <li *ngFor="let suggestion of citySuggestions">
+            <a (click)="selectCity(suggestion)">{{ suggestion }}</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Messaggio di errore -->
+      <div *ngIf="cityNotFoundError" class="error-message mt-3">
+        <p class="text-danger">City not found. Please enter a valid city name.</p>
+      </div>
+
+      <div *ngIf="city.length > 0 && !isValidCityName(city)" class="error-message mt-3">
+        <p class="text-danger">Please enter a valid city name.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row align-items-center justify-content-center " *ngIf="weather">
+    <div class="col-6">
+      <h3 class="d-flex justify-content-center resp" style="margin: 2rem;">
+        Weather Information for: <span style="color: brown;" class="resp2">{{ city }}</span>
+      </h3>
+      <div class="info-container">
+        <p>Timezone: {{ weather?.timezone }} |</p>
+        <p>Latitude: {{ weather?.latitude }} |</p>
+        <p>Longitude: {{ weather?.longitude }}</p>
+      </div>
+    </div>
+
+    <div *ngFor="let weekGroup of chunkArray(hourlyData, 3); let weekGroupIndex = index">
+      <div class="row">
+        <div *ngFor="let hourly of weekGroup; let weekIndex = index" class="col-lg-4">
+          <h4 class="d-flex justify-content-center mt-4 mb-4">
+            {{ getDayDate(weekGroupIndex * 3 + weekIndex) }}
+          </h4>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Time</th>
+                <th>Temperature (°C)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let temp of hourly; let i = index">
+                <td>{{ formatHour(i) }}</td>
+                <td>{{ temp }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- FOOTER -->
+
+<footer class="text-center bg-body-tertiary">
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+    © 2024 Copyright:
+    <a class="text-body" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+
+
+</body>
